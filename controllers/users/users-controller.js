@@ -10,6 +10,11 @@ function UsersController(app) {
     const user = await usersDao.findUserById(id);
     res.send(user);
   };
+  const findUserByUsername = async (req, res) => {
+    const username = req.params.username;
+    const user = await usersDao.findUserByUsername(username);
+    res.send(user);
+  };
   const deleteUserById = async (req, res) => {
     const id = req.params.id;
     const status = await usersDao.deleteUser(id);
@@ -66,7 +71,7 @@ function UsersController(app) {
   app.post("/api/users/register", register);
 
   app.get("/api/users", findAllUsers);
-  //   app.get("/api/users/:id", findUserById);
+  app.get("/api/users/username/:username", findUserByUsername);
   app.delete("/api/users/:id", deleteUserById);
   app.post("/api/users", createUser);
   app.put("/api/users/:id", updateUser);

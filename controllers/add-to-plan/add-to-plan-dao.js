@@ -7,3 +7,7 @@ export const addToPlan = async (userId, exerciseId) => {
 export const findPlan = async (userId, exerciseId) => {
   return addToPlanModel.findOne({ userId, exerciseId });
 };
+
+export const findPlansByUserId = async (userId) => {
+  return addToPlanModel.find({ userId });
+};

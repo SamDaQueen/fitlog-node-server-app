@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
+
 const exercisesSchema = new mongoose.Schema(
   {
-    name: String,
     exerciseId: Number,
+    name: String,
+    category: String,
+    image: String,
   },
   { collection: "exercises" }
 );

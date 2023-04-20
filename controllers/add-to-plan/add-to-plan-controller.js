@@ -15,7 +15,14 @@ const AddToPlanController = (app) => {
     res.json(plan);
   };
 
+  const findPlansByUserId = async (req, res) => {
+    const userId = req.params["uid"];
+    const plans = await dao.findPlansByUserId(userId);
+    res.json(plans);
+  };
+
   app.post("/api/users/:uid/add/:eid", addToPlan);
   app.get("/api/users/:uid/add/:eid", findPlan);
+  app.get("/api/users/:uid/plan", findPlansByUserId);
 };
 export default AddToPlanController;
