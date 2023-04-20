@@ -2,8 +2,8 @@ import cors from "cors";
 import express from "express";
 import session from "express-session";
 import mongoose from "mongoose";
-import AddToPlanController from "./controllers/add-to-plan/add-to-plan-controller.js";
 import ExercisesController from "./controllers/exercise/exercises-controller.js";
+import PlanController from "./controllers/plan/plan-controller.js";
 import SessionController from "./controllers/session-controller.js";
 import UsersController from "./controllers/users/users-controller.js";
 
@@ -20,6 +20,7 @@ app.use(
   session({
     secret: "secret",
     resave: false,
+    saveUninitialized: false,
     cookie: { secure: false }, // true on remote server, false on local
   })
 );
@@ -34,6 +35,6 @@ mongoose.connect(CONNECTION_STRING);
 ExercisesController(app);
 UsersController(app);
 SessionController(app);
-AddToPlanController(app);
+PlanController(app);
 
 app.listen(process.env.POST || 4000);

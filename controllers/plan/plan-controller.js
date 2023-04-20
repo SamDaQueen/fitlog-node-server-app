@@ -1,6 +1,6 @@
-import * as dao from "./add-to-plan-dao.js";
+import * as dao from "./plan-dao.js";
 
-const AddToPlanController = (app) => {
+const PlanController = (app) => {
   const addToPlan = async (req, res) => {
     const userId = req.params["uid"];
     const exerciseId = req.params["eid"];
@@ -21,8 +21,16 @@ const AddToPlanController = (app) => {
     res.json(plans);
   };
 
+  const deleteFromPlan = async (req, res) => {
+    const userId = req.params["uid"];
+    const exerciseId = req.params["eid"];
+    const plan = await dao.deleteFromPlan(userId, exerciseId);
+    res.json(plan);
+  };
+
   app.post("/api/users/:uid/add/:eid", addToPlan);
   app.get("/api/users/:uid/add/:eid", findPlan);
   app.get("/api/users/:uid/plan", findPlansByUserId);
+  app.delete("/api/users/:uid/add/:eid", deleteFromPlan);
 };
-export default AddToPlanController;
+export default PlanController;

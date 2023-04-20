@@ -10,7 +10,13 @@ const ExercisesController = (app) => {
     const result = await dao.createExercise(exercise);
     res.json(result);
   };
+  const findExerciseById = async (req, res) => {
+    const exerciseId = req.params["eid"];
+    const exercise = await dao.findExerciseById(exerciseId);
+    res.json(exercise);
+  };
   app.get("/api/exercises", findAllExercises);
   app.post("/api/exercises", createExercise);
+  app.get("/api/exercises/:eid", findExerciseById);
 };
 export default ExercisesController;
