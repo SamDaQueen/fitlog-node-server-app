@@ -1,11 +1,9 @@
 import * as usersDao from "./users-dao.js";
 
-let currentUser = null;
-
 function UsersController(app) {
   const findAllUsers = async (req, res) => {
     const users = await usersDao.findAllUsers();
-    res.json(users);
+    res.send(users);
   };
   const findUserById = async (req, res) => {
     const id = req.params.id;
@@ -27,23 +25,26 @@ function UsersController(app) {
     res.json(status);
   };
   const login = async (req, res) => {
+    const user = req.body;
+    console.log(user);
     const foundUser = await usersDao.findUserByCredentials(
       req.body.username,
-      req.body.email,
       req.body.password
     );
+    console.log(foundUser);
     if (foundUser) {
-      currentUser = foundUser;
+      req.session["currentUser"] = foundUser;
       res.send(foundUser);
     } else {
       res.sendStatus(404);
     }
   };
   const logout = async (req, res) => {
-    currentUser = null;
+    req.session.destroy();
     res.sendStatus(204);
   };
   const profile = async (req, res) => {
+    const currentUser = req.session["currentUser"];
     if (currentUser) {
       res.send(currentUser);
     } else {
@@ -57,7 +58,7 @@ function UsersController(app) {
       res.sendStatus(409);
     } else {
       const newUser = await usersDao.createUser(user);
-      currentUser = newUser;
+      req.session["currentUser"] = newUser;
       res.json(newUser);
     }
   };
@@ -68,7 +69,7 @@ function UsersController(app) {
   app.post("/api/users/register", register);
 
   app.get("/api/users", findAllUsers);
-  app.get("/api/users/:id", findUserById);
+  //   app.get("/api/users/:id", findUserById);
   app.delete("/api/users/:id", deleteUserById);
   app.post("/api/users", createUser);
   app.put("/api/users/:id", updateUser);

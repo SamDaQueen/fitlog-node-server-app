@@ -9,8 +9,8 @@ export const findUserById = async (id) => usersModel.findById(id);
 export const findUserByUsername = async (username) =>
   usersModel.findOne({ username });
 
-export const findUserByCredentials = async (username, email, password) =>
-  usersModel.findOne({ username, email, password });
+export const findUserByCredentials = async (username, password) =>
+  usersModel.findOne({ username, password });
 
 export const deleteUser = async (id) => usersModel.deleteOne({ _id: id });
 
