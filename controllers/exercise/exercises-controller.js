@@ -11,5 +11,6 @@ const ExercisesController = (app) => {
     res.json(result);
   };
   app.get("/api/exercises", findAllExercises);
+  app.post("/api/exercises", createExercise);
 };
 export default ExercisesController;
