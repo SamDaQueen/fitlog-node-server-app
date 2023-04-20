@@ -25,13 +25,10 @@ function UsersController(app) {
     res.json(status);
   };
   const login = async (req, res) => {
-    const user = req.body;
-    console.log(user);
     const foundUser = await usersDao.findUserByCredentials(
       req.body.username,
       req.body.password
     );
-    console.log(foundUser);
     if (foundUser) {
       req.session["currentUser"] = foundUser;
       res.send(foundUser);
