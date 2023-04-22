@@ -7,12 +7,17 @@ const ExercisesController = (app) => {
   };
   const createExercise = async (req, res) => {
     const exercise = req.body;
-    const result = await dao.createExercise(exercise);
-    res.json(result);
+    const foundExercise = await dao.findExerciseById(exercise._id);
+    if (!foundExercise) {
+      const result = await dao.createExercise(exercise);
+      res.json(result);
+    } else {
+      res.json(foundExercise);
+    }
   };
   const findExerciseById = async (req, res) => {
-    const exerciseId = req.params["eid"];
-    const exercise = await dao.findExerciseById(exerciseId);
+    const id = req.params["eid"];
+    const exercise = await dao.findExerciseById(id);
     res.json(exercise);
   };
   app.get("/api/exercises", findAllExercises);

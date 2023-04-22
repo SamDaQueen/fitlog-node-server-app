@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const exercisesSchema = new mongoose.Schema(
   {
-    exerciseId: Number,
+    _id: { type: Number, required: true },
     name: String,
     category: String,
     image: String,

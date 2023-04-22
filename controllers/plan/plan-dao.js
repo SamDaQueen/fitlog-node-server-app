@@ -8,8 +8,11 @@ export const findPlan = async (userId, exerciseId) => {
   return planModel.findOne({ userId, exerciseId });
 };
 
-export const findPlansByUserId = async (userId) => {
-  return planModel.find({ userId });
+export const findPlanByUserId = async (userId) => {
+  return await planModel
+    .find({ userId })
+    .populate({ path: "exerciseId", model: "exercises" })
+    .exec();
 };
 
 export const deleteFromPlan = async (userId, exerciseId) => {

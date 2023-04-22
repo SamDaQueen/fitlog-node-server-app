@@ -15,10 +15,10 @@ const PlanController = (app) => {
     res.json(plan);
   };
 
-  const findPlansByUserId = async (req, res) => {
+  const findPlanByUserId = async (req, res) => {
     const userId = req.params["uid"];
-    const plans = await dao.findPlansByUserId(userId);
-    res.json(plans);
+    const plans = await dao.findPlanByUserId(userId);
+    return res.json(plans.map((plan) => plan.exerciseId));
   };
 
   const deleteFromPlan = async (req, res) => {
@@ -30,7 +30,7 @@ const PlanController = (app) => {
 
   app.post("/api/users/:uid/add/:eid", addToPlan);
   app.get("/api/users/:uid/add/:eid", findPlan);
-  app.get("/api/users/:uid/plan", findPlansByUserId);
+  app.get("/api/users/:uid/plan", findPlanByUserId);
   app.delete("/api/users/:uid/add/:eid", deleteFromPlan);
 };
 export default PlanController;
