@@ -18,6 +18,7 @@ function UsersController(app) {
   const deleteUserById = async (req, res) => {
     const id = req.params.id;
     const status = await usersDao.deleteUser(id);
+    req.session.destroy();
     res.json(status);
   };
   const createUser = async (req, res) => {
