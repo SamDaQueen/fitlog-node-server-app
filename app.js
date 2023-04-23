@@ -2,6 +2,7 @@ import cors from "cors";
 import express from "express";
 import session from "express-session";
 import mongoose from "mongoose";
+import ActivitiesController from "./controllers/activities/activities-controller.js";
 import ExercisesController from "./controllers/exercise/exercises-controller.js";
 import PlanController from "./controllers/plan/plan-controller.js";
 import ReviewsController from "./controllers/reviews/reviews-controller.js";
@@ -38,5 +39,6 @@ UsersController(app);
 SessionController(app);
 PlanController(app);
 ReviewsController(app);
+ActivitiesController(app);
 
 app.listen(process.env.POST || 4000);

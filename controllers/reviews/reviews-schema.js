@@ -5,5 +5,6 @@ const reviewsSchema = new mongoose.Schema({
   rating: { type: Number, required: true },
   review: { type: String, required: true },
   exerciseId: { type: Number, required: true },
+  date: { type: Date, required: true },
 });
 export default reviewsSchema;
