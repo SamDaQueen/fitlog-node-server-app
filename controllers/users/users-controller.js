@@ -10,6 +10,11 @@ function UsersController(app) {
     const user = await usersDao.findUserById(id);
     res.send(user);
   };
+  const findAllByRole = async (req, res) => {
+    const role = req.params.role;
+    const users = await usersDao.findAllByRole(role);
+    res.send(users);
+  };
   const findUserByUsername = async (req, res) => {
     const username = req.params.username;
     const user = await usersDao.findUserByUsername(username);
@@ -74,6 +79,7 @@ function UsersController(app) {
 
   app.get("/api/users", findAllUsers);
   app.get("/api/users/username/:username", findUserByUsername);
+  app.get("/api/users/role/:role", findAllByRole);
   app.delete("/api/users/:id", deleteUserById);
   app.post("/api/users", createUser);
   app.put("/api/users/:id", updateUser);

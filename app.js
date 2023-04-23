@@ -7,6 +7,7 @@ import ExercisesController from "./controllers/exercise/exercises-controller.js"
 import PlanController from "./controllers/plan/plan-controller.js";
 import ReviewsController from "./controllers/reviews/reviews-controller.js";
 import SessionController from "./controllers/session-controller.js";
+import TrainersController from "./controllers/trainers/trainers-controller.js";
 import UsersController from "./controllers/users/users-controller.js";
 
 const app = express();
@@ -40,5 +41,6 @@ SessionController(app);
 PlanController(app);
 ReviewsController(app);
 ActivitiesController(app);
+TrainersController(app);
 
 app.listen(process.env.POST || 4000);
