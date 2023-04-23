@@ -79,6 +79,7 @@ function UsersController(app) {
 
   app.get("/api/users", findAllUsers);
   app.get("/api/users/username/:username", findUserByUsername);
+  app.get("/api/users/userId/:id", findUserById);
   app.get("/api/users/role/:role", findAllByRole);
   app.delete("/api/users/:id", deleteUserById);
   app.post("/api/users", createUser);
