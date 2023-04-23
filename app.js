@@ -4,6 +4,7 @@ import session from "express-session";
 import mongoose from "mongoose";
 import ExercisesController from "./controllers/exercise/exercises-controller.js";
 import PlanController from "./controllers/plan/plan-controller.js";
+import ReviewsController from "./controllers/reviews/reviews-controller.js";
 import SessionController from "./controllers/session-controller.js";
 import UsersController from "./controllers/users/users-controller.js";
 
@@ -36,5 +37,6 @@ ExercisesController(app);
 UsersController(app);
 SessionController(app);
 PlanController(app);
+ReviewsController(app);
 
 app.listen(process.env.POST || 4000);
