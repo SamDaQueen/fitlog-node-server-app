@@ -1,16 +1,22 @@
 import trainersModel from "./trainers-model.js";
 
 export const findAllUsersByTrainerId = async (trainerId) =>
-  trainersModel.find({ trainerId }).populate({
-    path: "userId",
-    model: "users",
-  });
+  trainersModel
+    .find({ trainerId })
+    .populate({
+      path: "userId",
+      model: "users",
+    })
+    .exec();
 
 export const findTrainerByUserId = async (userId) =>
-  trainersModel.findOne({ userId }).populate({
-    path: "trainerId",
-    model: "users",
-  });
+  trainersModel
+    .findOne({ userId })
+    .populate({
+      path: "trainerId",
+      model: "users",
+    })
+    .exec();
 
 export const createTrainerUser = async (trainerUser) =>
   trainersModel.create(trainerUser);

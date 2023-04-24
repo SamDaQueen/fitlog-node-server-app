@@ -9,7 +9,14 @@ export const findReviewsByExerciseId = async (exerciseId) => {
 };
 
 export const findReviewsByUsername = async (username) => {
-  return reviewsModel.find({ username });
+  return reviewsModel
+    .find({ username })
+    .populate({
+      path: "exerciseId",
+      model: "exercises",
+      select: "name",
+    })
+    .exec();
 };
 
 export const deleteReview = async (reviewId) => {
