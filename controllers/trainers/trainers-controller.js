@@ -4,7 +4,7 @@ function TrainersController(app) {
   const findAllUsersByTrainerId = async (req, res) => {
     const trainerId = req.params.trainerId;
     const users = await dao.findAllUsersByTrainerId(trainerId);
-    res.send(users);
+    res.send(users.map((user) => user.userId));
   };
 
   const findTrainerByUserId = async (req, res) => {

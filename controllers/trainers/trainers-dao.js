@@ -1,7 +1,10 @@
 import trainersModel from "./trainers-model.js";
 
 export const findAllUsersByTrainerId = async (trainerId) =>
-  trainersModel.find({ trainerId });
+  trainersModel.find({ trainerId }).populate({
+    path: "userId",
+    model: "users",
+  });
 
 export const findTrainerByUserId = async (userId) =>
   trainersModel.findOne({ userId }).populate({
