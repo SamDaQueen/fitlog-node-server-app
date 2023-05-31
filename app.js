@@ -28,11 +28,9 @@ app.use(
   })
 );
 
-// const CONNECTION_STRING =
-//   process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/fitlog";
-
 const CONNECTION_STRING =
-  "mongodb+srv://fitlog-username:fitlog-password@fitlog.tx1t84a.mongodb.net/Fitlog?retryWrites=true&w=majority";
+  process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/fitlog";
+
 mongoose.connect(CONNECTION_STRING);
 
 ExercisesController(app);
