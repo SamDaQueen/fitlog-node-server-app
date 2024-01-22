@@ -19,3 +19,27 @@
 ---
 
 Created using Node.js, Express.js, and MongoDB for the database. Hosted on Render.com.
+
+> #### **Home page**
+<img src="https://github.com/SamDaQueen/fitlog-react-web-app/blob/main/images/home.png" alt="drawing" width="850"/>
+
+> #### **Exercises**
+<img src="https://github.com/SamDaQueen/fitlog-react-web-app/blob/main/images/search.png" alt="drawing" width="850"/>
+
+> #### **Exercise details**
+<img src="https://github.com/SamDaQueen/fitlog-react-web-app/blob/main/images/details.png" alt="drawing" width="850"/>
+
+> #### **Rating and reviews**
+<img src="https://github.com/SamDaQueen/fitlog-react-web-app/blob/main/images/rating.png" alt="drawing" width="850"/>
+
+> #### **Logged out**
+<img src="https://github.com/SamDaQueen/fitlog-react-web-app/blob/main/images/logged-out.png" alt="drawing" width="850"/>
+
+> #### **Profile**
+<img src="https://github.com/SamDaQueen/fitlog-react-web-app/blob/main/images/self-profile.png" alt="drawing" width="850"/>
+
+> #### **Other's profile**
+<img src="https://github.com/SamDaQueen/fitlog-react-web-app/blob/main/images/other-profile.png" alt="drawing" width="850"/>
+
+> #### **Trainer profile**
+<img src="https://github.com/SamDaQueen/fitlog-react-web-app/blob/main/images/trainer.png" alt="drawing" width="850"/>
