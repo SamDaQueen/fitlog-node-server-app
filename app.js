@@ -30,7 +30,7 @@ app.use(
     secret: "secret",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false }, // true on remote server, false on local
+    cookie: { secure: true },
   })
 );
 
