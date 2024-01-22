@@ -12,12 +12,18 @@ import UsersController from "./controllers/users/users-controller.js";
 
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://localhost:3000",
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://main--sweet-sopapillas-1c3774.netlify.app"
+];
+
+app.use(cors(
+  {
+    origin: allowedOrigins,
     credentials: true,
-  })
-);
+  }
+));
 
 app.use(
   session({
