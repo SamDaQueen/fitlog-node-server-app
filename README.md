@@ -16,6 +16,41 @@
 #### The server for the [website](https://main--sweet-sopapillas-1c3774.netlify.app) with frontend located [here](https://github.com/SamDaQueen/fitlog-react-web-app).
 #### Web application to help fitness trainers & self-trainers find exercises, make fitness plans, rate exercises & interact socially.
 
+## Endpoints
+| Controller | Name                        | HTTP Method | Rote                           |
+|------------|-----------------------------|-------------|--------------------------------|
+| Users      | Create User                 | POST        | api/users                      |
+|            | Read Users                  | GET         | api/users                      |
+|            | Read User by Username       | GET         | api/users/username/:username   |
+|            | Read User by Id             | GET         | api/users/userId/:uid          |
+|            | Read User by Role           | GET         | api/users/role/:role           |
+|            | Update User                 | PUT         | api/users/:uid                 |
+|            | Delete User                 | DELETE      | api/users                      |
+|            | Login                       | POST        | api/users/login                |
+|            | Logout                      | POST        | api/users/logout               |
+|            | Profile                     | GET         | api/users/profiles             |
+|            | Register                    | POST        | api/users/register             |
+| Trainers   | Create Trainer              | POST        | api/trainers                   |
+|            | Read Trainers by User Id    | GET         | api/trainers/user/:uid         |
+|            | Read Users by Trainer Id    | GET         | api/trainers/:tid              |
+|            | Update Trainer for User     | PUT         | api/trainers/user/:uid         |
+|            | Delete Trainer              | DELETE      | api/trainers/:tid              |
+| Activities | Create Activity             | POST        | api/activities                 |
+|            | Read Activities             | GET         | api/activities                 |
+|            | Read Activities by Username | GET         | api/users/:username/activities |
+|            | Delete Activities           | DELETE      | api/activities/:aid            |
+| Plan       | Add to Plan                 | POST        | api/users/:uid/add/:eid        |
+|            | Read Plan                   | GET         | api/users/:uid/add/:eid        |
+|            | Read Exercises by User Id   | GET         | api/users/:uid/plan            |
+|            | Delete From Plan            | DELETE      | api/users/:uid/add/:eid        |
+| Reviews    | Create Review               | POST        | api/exercises/reviews          |
+|            | Read Reviews by Exercise Id | GET         | api/exercises/reviews/:eid     |
+|            | Read Reviews by Username    | GET         | api/users/:username/reviews    |
+|            | Delete Review               | DELETE      | api/exercises/reviews/:rid     |
+| Exercises  | Create Exercises            | POST        | api/exercises                  |  
+|            | Read Exercises              | GET         | api/exercises                  |
+|            | Read Exercises by Id        | GET         | api/exercises/:eid             |
+|            | Read Users by Exercise Id   | GET         | api/exercises/:eid/users       |
 ---
 
 Created using Node.js, Express.js, and MongoDB for the database. Hosted on Render.com.
